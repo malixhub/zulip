@@ -2700,3 +2700,70 @@ body:not(.spectator-view) {
         transform: translate3d(4px, 0, 0);
     }
 }
+
+
+/*
+ * ASDPolicy UI experiment: Slack-inspired visual skin.
+ *
+ * Visual-only overrides: Zulip's channel/topic/message DOM and behavior remain
+ * unchanged. Remove this section to restore the default design.
+ * Applied to the light theme only, with low-specificity responsive overrides.
+ */
+@media (min-width: 769px) {
+    body:not(.dark-theme) {
+        --color-background: #ffffff;
+        --color-background-sidebar: #4a154b;
+        --color-background-sidebar-hover: #5c2c5d;
+        --color-text-sidebar-heading: #e9d6ea;
+        --color-text-sidebar: #f4eaf4;
+    }
+
+    body:not(.dark-theme) #left-sidebar,
+    body:not(.dark-theme) .column-left {
+        background: #4a154b;
+        color: #f4eaf4;
+    }
+
+    body:not(.dark-theme) #left-sidebar a,
+    body:not(.dark-theme) #left-sidebar button,
+    body:not(.dark-theme) #left-sidebar .left-sidebar-title,
+    body:not(.dark-theme) #left-sidebar .sidebar-heading {
+        color: #f4eaf4;
+    }
+
+    body:not(.dark-theme) #left-sidebar a:hover,
+    body:not(.dark-theme) #left-sidebar button:hover {
+        background-color: #5c2c5d;
+    }
+
+    body:not(.dark-theme) #left-sidebar a:focus-visible,
+    body:not(.dark-theme) #left-sidebar button:focus-visible {
+        outline: 2px solid #f9c9ff;
+        outline-offset: -2px;
+    }
+
+    body:not(.dark-theme) #left-sidebar .selected,
+    body:not(.dark-theme) #left-sidebar .active {
+        background-color: #1164a3;
+        color: #ffffff;
+        border-radius: 5px;
+    }
+
+    body:not(.dark-theme) #left-sidebar .unread_count {
+        font-weight: 750;
+    }
+
+    body:not(.dark-theme) .column-middle,
+    body:not(.dark-theme) #main_div {
+        background-color: #ffffff;
+    }
+
+    body:not(.dark-theme) .header-main {
+        background-color: #ffffff;
+        border-bottom: 1px solid #e8e8e8;
+    }
+
+    body:not(.dark-theme) #compose-container {
+        background-color: #ffffff;
+    }
+}

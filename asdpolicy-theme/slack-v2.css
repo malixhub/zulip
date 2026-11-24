@@ -1,0 +1,69 @@
+/* ASDPolicy Slack-style skin v2. Visual styling only, no application behavior changed. */
+@media (min-width: 769px) {
+  /* Slack's distinctive plum navigation */
+  #left-sidebar, .app-main .column-left .left-sidebar, .app-main .column-left {
+    background-color: #4a154b !important;
+    color: #f5eef5 !important;
+  }
+  #left-sidebar .left-sidebar-title, #left-sidebar .sidebar-heading,
+  #left-sidebar a, #left-sidebar button,
+  #left-sidebar .stream-name, #left-sidebar .topic-name {
+    color: #f5eaf5 !important;
+  }
+  #left-sidebar .left-sidebar-title {
+    font-weight: 700 !important;
+    letter-spacing: .012em !important;
+  }
+  #left-sidebar a, #left-sidebar button {
+    border-radius: 5px;
+    transition: background-color .12s ease;
+  }
+  #left-sidebar a:hover, #left-sidebar button:hover,
+  #left-sidebar .stream-row:hover, #left-sidebar .topic-row:hover {
+    background-color: #653a66 !important;
+  }
+  #left-sidebar .selected, #left-sidebar .active,
+  #left-sidebar .stream-row.selected, #left-sidebar .topic-row.selected {
+    background-color: #1164a3 !important;
+    border-radius: 5px;
+    color: #fff !important;
+  }
+  #left-sidebar .unread_count {font-weight: 750 !important;}
+  #left-sidebar input, #left-sidebar .input-element {
+    border-radius: 6px !important;
+  }
+  /* Clean Slack-like white conversation canvas */
+  .app-main .column-middle, #main_div, .column-middle-inner,
+  #message-lists-container, #message_feed_container {
+    background-color: #fff !important;
+  }
+  .header, .header-main, #navbar-middle .column-middle-inner,
+  #message_view_header {
+    background-color: #fff !important;
+    box-shadow: inset 0 -1px 0 #e7e7e7 !important;
+  }
+  /* Messages: flat and comfortably spaced, keep Zulip interaction targets intact */
+  .message_row, .message_row.private-message {
+    background: #fff !important;
+    border-left-color: transparent !important;
+    border-right-color: transparent !important;
+  }
+  .message_row:hover {background-color: #f8f8f8 !important;}
+  .messagebox {border-radius: 5px;}
+  /* Composer: light framed input, no repositioning of toolbar/buttons */
+  #compose-container, #compose-content {
+    background-color: #fff !important;
+  }
+  #compose .compose-content, #compose .message_content {
+    border-radius: 7px;
+  }
+  /* Subtle side-panel separation */
+  .app-main .column-right .right-sidebar {
+    border-left-color: #e8e8e8 !important;
+  }
+}
+/* Focus indicators remain visible for keyboard use. */
+#left-sidebar a:focus-visible, #left-sidebar button:focus-visible {
+  outline: 2px solid #f0c9f2 !important;
+  outline-offset: -2px;
+}

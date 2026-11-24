@@ -141,7 +141,7 @@ def request(path, email, key, method="GET", payload=None):
 
 def main():
     print("Target:", BASE)
-    print("This creates six channels, four DEMO bots, and 44+ fictional sample messages.")
+    print("This creates six channels, four DEMO bots, and 42 fictional sample messages.")
     print("Existing conversations are never deleted or edited.")
     print("All new topic titles begin with DEMO.")
     if STATE.exists():
@@ -168,6 +168,9 @@ def main():
             bot_user = request(f"users/{created['user_id']}", email, key)["user"]
             bot_auth.append((bot_user["email"], created["api_key"], created["user_id"]))
             print("Created bot:", full_name)
+    # Resolve IDs for preexisting bots; GET /bots does not always expose user_id.
+    members = {u["email"]: u["user_id"] for u in request("users", email, key)["members"]}
+    bot_auth = [(bot_email, bot_key, uid or members[bot_email]) for bot_email, bot_key, uid in bot_auth]
     for name, spec in CHANNELS.items():
         request("users/me/subscriptions", email, key, "POST",
                 {"subscriptions": json.dumps([{"name": name, "description": spec["description"]}])})

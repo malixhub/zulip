@@ -1,0 +1,12 @@
+/*
+ * ASDPolicy refinements v2.
+ * Only suppress the visual border that follows Zulip's internal
+ * scroll/keyboard message selection. Do not disable selection behavior.
+ */
+.selected_message .messagebox-content,
+.message_row.selected_message .messagebox-content,
+#message-lists-container .selected_message .messagebox-content {
+    outline: 0 none !important;
+    outline-width: 0 !important;
+    box-shadow: none !important;
+}

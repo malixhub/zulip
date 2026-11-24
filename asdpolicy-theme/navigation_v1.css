@@ -1,0 +1,9 @@
+/* ASDPolicy: visually de-emphasize, but do not disable, Inbox. */
+#left-sidebar-navigation-list > li.asdpolicy-retired-inbox .left-sidebar-navigation-label {
+    text-decoration-line: line-through !important;
+    text-decoration-thickness: 1.5px !important;
+    opacity: .55 !important;
+}
+#left-sidebar-navigation-list > li.asdpolicy-retired-inbox .filter-icon {
+    opacity: .55 !important;
+}

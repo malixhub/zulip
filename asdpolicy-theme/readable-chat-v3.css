@@ -1,0 +1,126 @@
+/*
+ * ASDPolicy chat readability patch (Zulip 13.3)
+ * Designed to override previously appended dark/slack CSS experiments.
+ * No DOM changes, no scripts, no data changes.
+ */
+@media (min-width: 769px) {
+  html body,
+  html body .app,
+  html body .app-main,
+  html body #main_div {
+    background: #fff !important;
+    color: #233044 !important;
+  }
+  /* Channel navigation */
+  html body .app-main .column-left,
+  html body .app-main .column-left .left-sidebar,
+  html body #left-sidebar,
+  html body #left-sidebar .simplebar-content,
+  html body #left-sidebar .simplebar-content-wrapper {
+    background: #f2f5f8 !important;
+    color: #25374c !important;
+  }
+  html body #left-sidebar a,
+  html body #left-sidebar button,
+  html body #left-sidebar .left-sidebar-title,
+  html body #left-sidebar .stream-name,
+  html body #left-sidebar .topic-name,
+  html body #left-sidebar .unread_count,
+  html body #left-sidebar [class*="sidebar"] {
+    color: #25374c !important;
+  }
+  html body #left-sidebar .selected,
+  html body #left-sidebar .active,
+  html body #left-sidebar .stream-row.selected,
+  html body #left-sidebar .topic-row.selected {
+    background: #dfe7f0 !important;
+    color: #152b44 !important;
+  }
+  html body #left-sidebar a:hover,
+  html body #left-sidebar button:hover {
+    background: #e0e7ee !important;
+    color: #152b44 !important;
+  }
+  /* Header and feed */
+  html body .header,
+  html body .header-main,
+  html body #navbar-middle .column-middle-inner,
+  html body #message_view_header,
+  html body .app-main .column-middle,
+  html body .app-main .column-middle .column-middle-inner,
+  html body #message-lists-container,
+  html body #message_feed_container,
+  html body .recipient-bar,
+  html body .recipient_row {
+    background-color: #fff !important;
+    color: #233044 !important;
+  }
+  html body .message_row,
+  html body .message_row.private-message,
+  html body .message_row .messagebox,
+  html body .message_row .messagebox-content,
+  html body .message_row .message_content,
+  html body .message_row .message_sender,
+  html body .message_row .message_sender *,
+  html body .message_row .message_content *,
+  html body .message_row .messagebox-content .sender_name {
+    background-color: #fff !important;
+    color: #233044 !important;
+    text-shadow: none !important;
+  }
+  html body .message_row:hover,
+  html body .message_row:hover .messagebox,
+  html body .message_row:hover .messagebox-content {
+    background-color: #f7f9fb !important;
+  }
+  html body .message_row {
+    border-left-color: transparent !important;
+    border-right-color: transparent !important;
+    border-bottom: 1px solid #edf0f3 !important;
+  }
+  html body .message_row .messagebox-content { padding-top: 7px; padding-bottom: 7px; }
+  html body .message_row .message_content { line-height: 1.48; }
+  html body .message_row a { color: #195c9a !important; }
+  html body .message_row .message-time,
+  html body .message_row .message_time,
+  html body .message_row time {
+    color: #667588 !important;
+  }
+  /* Right sidebar, previously left dark by the old overlays */
+  html body .app-main .column-right,
+  html body .app-main .column-right .right-sidebar,
+  html body #right-sidebar,
+  html body .user_sidebar_entry {
+    background: #f8fafc !important;
+    color: #26364a !important;
+  }
+  html body .app-main .column-right a,
+  html body .app-main .column-right button,
+  html body .app-main .column-right span {
+    color: #32465b !important;
+  }
+  /* Composer: actual click-to-open Zulip editor, not an artificial fake input */
+  html body #compose,
+  html body #compose-container,
+  html body #compose-content,
+  html body #message-content-container,
+  html body #compose .messagebox,
+  html body #legacy-closed-compose-box {
+    background: #fff !important;
+    color: #233044 !important;
+  }
+  html body #compose-content {
+    border: 1px solid #cbd5df !important;
+    border-radius: 9px !important;
+  }
+  html body #compose-textarea,
+  html body #compose textarea,
+  html body #compose input,
+  html body #compose [contenteditable="true"] {
+    background: #fff !important;
+    color: #233044 !important;
+  }
+  html body #compose textarea::placeholder,
+  html body #compose input::placeholder { color: #68788a !important; }
+  html body #legacy-closed-compose-box button { color: #233044 !important; }
+}

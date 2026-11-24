@@ -1,0 +1,109 @@
+/*
+ * ASDPolicy Collaboratory-inspired skin for Zulip 13.3.
+ * Reference: malixhub/sharepro/asdpolicy/backend/v2/assets/styles-members.css
+ * CSS-only, desktop-first. No replacement of Zulip markup or functionality.
+ *
+ * This file is intentionally a standalone layer so it can be rolled back.
+ * Do not apply simultaneously with slack-v2.css; the last loaded layer wins.
+ */
+@media (min-width: 769px) {
+  body:not(.dark-theme) {
+    --color-background: #ffffff;
+    --color-background-navbar: #ffffff;
+    --color-background-sidebar: #f3f6f9;
+    --color-text-sidebar: #4d5e73;
+    --color-text-sidebar-heading: #46566b;
+  }
+
+  body:not(.dark-theme) .app-main .column-left,
+  body:not(.dark-theme) .app-main .column-left .left-sidebar,
+  body:not(.dark-theme) #left-sidebar {
+    background: #f3f6f9 !important;
+    color: #4d5e73 !important;
+  }
+
+  body:not(.dark-theme) #left-sidebar {
+    border-right: 1px solid #dfe5ec !important;
+  }
+
+  body:not(.dark-theme) #left-sidebar a,
+  body:not(.dark-theme) #left-sidebar button,
+  body:not(.dark-theme) #left-sidebar .left-sidebar-title,
+  body:not(.dark-theme) #left-sidebar .stream-name,
+  body:not(.dark-theme) #left-sidebar .topic-name {
+    color: #4d5e73 !important;
+  }
+
+  body:not(.dark-theme) #left-sidebar .left-sidebar-title {
+    font-weight: 650 !important;
+    letter-spacing: 0 !important;
+  }
+
+  body:not(.dark-theme) #left-sidebar a,
+  body:not(.dark-theme) #left-sidebar button,
+  body:not(.dark-theme) #left-sidebar .stream-row,
+  body:not(.dark-theme) #left-sidebar .topic-row {
+    border-radius: 6px;
+  }
+
+  body:not(.dark-theme) #left-sidebar a:hover,
+  body:not(.dark-theme) #left-sidebar button:hover,
+  body:not(.dark-theme) #left-sidebar .stream-row:hover,
+  body:not(.dark-theme) #left-sidebar .topic-row:hover {
+    background: #e7edf3 !important;
+  }
+
+  body:not(.dark-theme) #left-sidebar .selected,
+  body:not(.dark-theme) #left-sidebar .active,
+  body:not(.dark-theme) #left-sidebar .stream-row.selected,
+  body:not(.dark-theme) #left-sidebar .topic-row.selected {
+    background: #e2e8f0 !important;
+    color: #243346 !important;
+    border-radius: 6px;
+  }
+
+  body:not(.dark-theme) .app-main .column-middle,
+  body:not(.dark-theme) #main_div,
+  body:not(.dark-theme) .column-middle-inner,
+  body:not(.dark-theme) #message-lists-container,
+  body:not(.dark-theme) #message_feed_container {
+    background: #ffffff !important;
+  }
+
+  body:not(.dark-theme) .header,
+  body:not(.dark-theme) .header-main,
+  body:not(.dark-theme) #navbar-middle .column-middle-inner,
+  body:not(.dark-theme) #message_view_header {
+    background: #ffffff !important;
+    box-shadow: inset 0 -1px 0 #dfe5ec !important;
+  }
+
+  body:not(.dark-theme) .message_row,
+  body:not(.dark-theme) .message_row.private-message {
+    background: #ffffff !important;
+    border-left-color: transparent !important;
+    border-right-color: transparent !important;
+  }
+
+  body:not(.dark-theme) .message_row:hover {
+    background: #fbfcfd !important;
+  }
+
+  body:not(.dark-theme) .messagebox {
+    border-radius: 5px;
+  }
+
+  body:not(.dark-theme) #compose-container,
+  body:not(.dark-theme) #compose-content {
+    background: #ffffff !important;
+  }
+
+  body:not(.dark-theme) #compose .compose-content,
+  body:not(.dark-theme) #compose .message_content {
+    border-radius: 9px;
+  }
+
+  body:not(.dark-theme) .app-main .column-right .right-sidebar {
+    border-left-color: #dfe5ec !important;
+  }
+}

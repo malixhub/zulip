@@ -1,0 +1,77 @@
+/* ASDPolicy contrast repair v2: append after all previous theme experiments. */
+@media (min-width: 769px) {
+  html body .app-main .column-left,
+  html body .app-main .column-left .left-sidebar,
+  html body #left-sidebar,
+  html body #left-sidebar .simplebar-content-wrapper {
+    background-color: #f3f6f9 !important;
+    color: #243346 !important;
+  }
+  html body #left-sidebar *,
+  html body #left-sidebar a,
+  html body #left-sidebar button,
+  html body #left-sidebar span,
+  html body #left-sidebar .left-sidebar-title,
+  html body #left-sidebar .stream-name,
+  html body #left-sidebar .topic-name {
+    color: #34465a !important;
+    text-shadow: none !important;
+  }
+  html body #left-sidebar a:hover,
+  html body #left-sidebar button:hover,
+  html body #left-sidebar .stream-row:hover,
+  html body #left-sidebar .topic-row:hover {
+    background: #e1e8f0 !important;
+  }
+  html body #left-sidebar .selected,
+  html body #left-sidebar .selected *,
+  html body #left-sidebar .active,
+  html body #left-sidebar .active *,
+  html body #left-sidebar .stream-row.selected,
+  html body #left-sidebar .topic-row.selected {
+    background-color: #d7e2ef !important;
+    color: #142b45 !important;
+  }
+  html body .header,
+  html body .header-main,
+  html body #navbar-middle .column-middle-inner,
+  html body #message_view_header,
+  html body .app-main .column-middle,
+  html body .column-middle-inner,
+  html body #message-lists-container,
+  html body #message_feed_container,
+  html body #compose-container {
+    background-color: #ffffff !important;
+    color: #233044 !important;
+  }
+  html body .message_row,
+  html body .message_row.private-message,
+  html body .messagebox {
+    background-color: #ffffff !important;
+    color: #233044 !important;
+  }
+  html body .message_row:hover { background-color: #f7fafc !important; }
+  html body .message_row .message_content,
+  html body .message_row .message_content *,
+  html body .message_row .sender_name,
+  html body .message_row .sender_name a,
+  html body .message_row .message_sender,
+  html body .message_row .message-time,
+  html body .message_row .message_time,
+  html body .messagebox .message_content {
+    color: #243346 !important;
+  }
+  html body #compose textarea,
+  html body #compose input,
+  html body #compose [contenteditable="true"] {
+    color: #233044 !important;
+    background-color: #ffffff !important;
+  }
+  html body #compose textarea::placeholder,
+  html body #compose input::placeholder {
+    color: #62758a !important;
+  }
+  html body #left-sidebar a:focus-visible {
+    outline: 2px solid #2f6fb3 !important;
+  }
+}

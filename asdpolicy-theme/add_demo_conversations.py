@@ -78,7 +78,7 @@ THREADS = [
  ]),
 ]
 
-# DMs are private demo conversations between bots, never sent to the user's account.
+# Group DMs include the operator so the conversations are visible in their inbox.
 DMS = [
  (0, 2, "DEMO PRIVATE CHAT: Are the ADDM comparison notes ready for review?"),
  (2, 0, "Almost. I found a wording issue around surveillance sites versus states."),
@@ -138,19 +138,19 @@ def main():
                       {"type": "stream", "to": json.dumps(channel),
                        "topic": topic, "content": content})
         print("Conversation:", channel, "/", topic)
-    # Direct messages may be blocked by bot/organization policy; this is optional.
+    # Group direct messages may be blocked by bot/organization policy; this is optional.
     dm_count = 0
     try:
         for i, (actor, recipient, content) in enumerate(DMS):
             post_once(f"dm:{i}", actor,
-                      {"type": "private", "to": json.dumps([actors[recipient][0]]),
+                      {"type": "private", "to": json.dumps([actors[recipient][0], email]),
                        "content": content})
             dm_count += 1
     except RuntimeError as exc:
         print("Direct-message demo unavailable:", exc)
         print("Channel conversations have still been posted successfully.")
     print("Completed. Open #announcements and #research for real bot-to-bot exchanges.")
-    print("If permitted, demo-bot private messages are visible to their participants, not to your personal Zulip inbox.")
+    print("If permitted, the demo group DMs should also appear in your personal Zulip inbox.")
 
 if __name__ == "__main__":
     try:

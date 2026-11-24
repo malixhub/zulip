@@ -1,0 +1,6 @@
+/* ASDPolicy: cap excess space after the final message.
+   Zulip's default is 40% of the message viewport.
+   Keep this as a reversible visual experiment. */
+#bottom_whitespace {
+    height: min(100px, var(--max-unmaximized-compose-height)) !important;
+}

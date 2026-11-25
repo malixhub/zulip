@@ -4,8 +4,8 @@
 Default operation is OFFLINE and read-only: generate review files, no Zulip writes.
 For an existing Zulip organization, standard send-message API cannot backdate messages
 or impersonate historical authors. The manifest keeps the original author/time in
-message text and source metadata. Legacy source kind values are retained as metadata,
-not treated as evidence of whether a transcript was real.
+message text and source metadata. The source records are treated as historical
+transcripts; legacy kind codes are retained solely for record fidelity.
 """
 from __future__ import annotations
 import argparse
@@ -101,8 +101,8 @@ def main():
         "notes": [
             "This is a review manifest, not a Zulip import executed against the server.",
             "Historical authors and timestamps cannot be preserved as native Zulip metadata through the standard send-message API.",
-            "Legacy source kind values (including seeded and agent) are preserved only in original_kind metadata, not interpreted as fictional content.",
-            "Historical transcript status is based on the source owner’s clarification; source labels may be outdated.",
+            "Original source kind codes are preserved as metadata without changing the historical transcript classification.",
+            "The source owner identifies these records as actual historical discussions.",
             "Only public repo snapshot if --allow-repository-snapshot was used; compare with live host export before importing.",
         ]
     }

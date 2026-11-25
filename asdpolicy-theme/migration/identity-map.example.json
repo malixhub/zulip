@@ -1,0 +1,35 @@
+{
+  "domain": "example.invalid",
+  "owner": "Mali",
+  "users": {
+    "Mali": {
+      "email": "REPLACE_MALI"
+    },
+    "Che": {
+      "email": "REPLACE_CHE"
+    },
+    "Phill": {
+      "email": "REPLACE_PHILL"
+    },
+    "State Tracker": {
+      "email": "REPLACE_STATE_TRACKER"
+    },
+    "Policy Analyst": {
+      "email": "REPLACE_POLICY_ANALYST"
+    },
+    "Source Verifier": {
+      "email": "REPLACE_SOURCE_VERIFIER"
+    }
+  },
+  "channel_members": {
+    "general": [],
+    "weekly-review": [],
+    "daily-watch": [],
+    "national-policy": [],
+    "state-policy": [],
+    "research-review": [],
+    "product-build": [],
+    "backlog": [],
+    "agent-room": []
+  }
+}

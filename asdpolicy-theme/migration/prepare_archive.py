@@ -13,6 +13,7 @@ import datetime as dt
 import json
 import pathlib
 import urllib.request
+import urllib.error
 
 BASE = "https://raw.githubusercontent.com/malixhub/sharepro/main/asdpolicy/backend/v2/data/"
 SOURCES = ["messages-archive-1.json", "messages.json"]
@@ -66,10 +67,10 @@ def main():
         topic = f"Collaboratory archive | {day}"
         kind = str(m.get("kind", "unknown"))
         author = str(m.get("author", "Unknown author"))
-        preface = f"**[ARCHIVED {LABELS.get(kind, kind.upper())}]**\\n"
-        preface += f"**Original author/agent:** {author}\\n"
-        preface += f"**Original date:** {timestamp(str(m.get('created_at','')))}\\n"
-        preface += f"**Source record ID:** \\u0060{identifier}\\u0060\\n\\n"
+        preface = f"**[ARCHIVED {LABELS.get(kind, kind.upper())}]**\n"
+        preface += f"**Original author/agent:** {author}\n"
+        preface += f"**Original date:** {timestamp(str(m.get('created_at','')))}\n"
+        preface += f"**Source record ID:** `{identifier}`\n\n"
         body = str(m.get("text", ""))
         if not body.strip():
             continue

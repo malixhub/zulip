@@ -1,0 +1,241 @@
+/*
+ ASDPolicy Collaboratory UI for Zulip 13.3
+ v1.0 | visual stylesheet only | 2026-11-23
+ Inspired by the user's ASD Policy Collaboratory design and compact chat layouts.
+ One layer: replace older experiments instead of stacking stylesheets.
+ No hiding messages, controls, compose functionality, or sidebar search.
+*/
+@media (min-width: 769px) {
+  html body {
+    --asd-paper: #ffffff;
+    --asd-sidebar: #f1f4f7;
+    --asd-rail: #eaf0f4;
+    --asd-ink: #233044;
+    --asd-muted: #586b80;
+    --asd-border: #dce3eb;
+    --asd-selected: #dde6ef;
+    --asd-blue: #276cae;
+    --color-background: #ffffff;
+    --color-background-navbar: #ffffff;
+    --color-background-stream-message-content: #ffffff;
+    --color-text-default: #233044;
+    --color-background-sidebar: #f1f4f7;
+    --color-text-sidebar: #2b3d51;
+    --color-text-sidebar-heading: #2b3d51;
+    background: var(--asd-paper) !important;
+    color: var(--asd-ink) !important;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  /* LEFT COLUMN: match the pale navigation and selection in Collaboratory.
+     Do not change Zulip's column widths: the JS responsive geometry depends on them. */
+  html body .app-main .column-left,
+  html body .app-main .column-left .left-sidebar,
+  html body #left-sidebar,
+  html body #left-sidebar .simplebar-content,
+  html body #left-sidebar .simplebar-content-wrapper {
+    background: var(--asd-sidebar) !important;
+    color: var(--asd-ink) !important;
+  }
+  html body .app-main .column-left .left-sidebar {
+    border-right: 1px solid var(--asd-border) !important;
+  }
+  html body #left-sidebar a,
+  html body #left-sidebar button,
+  html body #left-sidebar .left-sidebar-title,
+  html body #left-sidebar .stream-name,
+  html body #left-sidebar .topic-name,
+  html body #left-sidebar .unread_count,
+  html body #left-sidebar .sidebar-heading {
+    color: #304258 !important;
+    text-shadow: none !important;
+  }
+  html body #left-sidebar .left-sidebar-title {
+    opacity: 1 !important;
+    font-weight: 680 !important;
+    letter-spacing: 0 !important;
+  }
+  html body #left-sidebar a,
+  html body #left-sidebar button {
+    border-radius: 6px !important;
+    transition: background-color .12s ease;
+  }
+  html body #left-sidebar a:hover,
+  html body #left-sidebar button:hover {
+    background: #e2eaf2 !important;
+  }
+  html body #left-sidebar .selected,
+  html body #left-sidebar .active {
+    background: var(--asd-selected) !important;
+    color: #1a2f45 !important;
+    border-radius: 6px;
+  }
+  html body #left-sidebar .selected a,
+  html body #left-sidebar .selected span,
+  html body #left-sidebar .active a,
+  html body #left-sidebar .active span {
+    color: #182e45 !important;
+  }
+  html body #left-sidebar input {
+    background: #fff !important;
+    color: #233044 !important;
+    border: 1px solid #cad5df !important;
+    border-radius: 7px !important;
+  }
+  html body #left-sidebar input::placeholder { color: #66788b !important; }
+  html body #left-sidebar .unread_count { font-weight: 760 !important; }
+
+  /* HEADER: compact white bar like the reference. */
+  html body #top_navbar,
+  html body .header,
+  html body .header-main,
+  html body #navbar-middle,
+  html body #navbar-middle .column-middle-inner,
+  html body #message_view_header,
+  html body .recipient_row,
+  html body .recipient-bar {
+    background: #fff !important;
+    color: #233044 !important;
+    box-shadow: inset 0 -1px 0 var(--asd-border) !important;
+  }
+  html body #top_navbar a,
+  html body #message_view_header a {
+    color: #264861 !important;
+  }
+
+  /* MESSAGE FEED: white content, readable author names and content,
+     gentle grouping and hover; preserve default avatars and message actions. */
+  html body .app-main .column-middle,
+  html body .app-main .column-middle .column-middle-inner,
+  html body #main_div,
+  html body #message-lists-container,
+  html body #message_feed_container,
+  html body .message_row,
+  html body .message_row.private-message,
+  html body .message_row .messagebox,
+  html body .message_row .messagebox-content,
+  html body .message_row .message_content,
+  html body .message_row .message_sender {
+    background: var(--asd-paper) !important;
+    color: var(--asd-ink) !important;
+  }
+  html body .message_row {
+    border-left-color: transparent !important;
+    border-right-color: transparent !important;
+  }
+  html body .message_row:hover,
+  html body .message_row:hover .messagebox,
+  html body .message_row:hover .messagebox-content {
+    background: #f7f9fb !important;
+  }
+  html body .message_row .messagebox-content {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+  html body .message_row .message_content,
+  html body .message_row .message_content p,
+  html body .message_row .message_content li {
+    color: #26364a !important;
+    line-height: 1.55;
+    text-shadow: none !important;
+  }
+  html body .message_row .sender_name,
+  html body .message_row .sender_name_text,
+  html body .message_row .message_sender,
+  html body .message_row .sender_name a {
+    color: #1d2b3a !important;
+    font-weight: 700;
+  }
+  html body .message_row .message-time,
+  html body .message_row .message_time,
+  html body .message_row time {
+    color: #627286 !important;
+  }
+  html body .message_row .message_content a { color: #145d9d !important; }
+  html body .message_row .message-avatar,
+  html body .message_row .message-avatar img {
+    border-radius: 50% !important;
+  }
+
+  /* COMPOSER: frame the real Zulip compose UI, without replacing it or
+     trying to force-open the existing collapsed editor via CSS. */
+  html body #compose,
+  html body #compose-container,
+  html body #compose-content,
+  html body #message-content-container,
+  html body #legacy-closed-compose-box {
+    background: #fff !important;
+    color: #233044 !important;
+  }
+  html body #compose-content {
+    border: 1px solid #c9d4df !important;
+    border-radius: 9px !important;
+    box-shadow: 0 1px 3px rgba(33, 56, 79, .07) !important;
+  }
+  html body #compose-textarea,
+  html body #compose textarea,
+  html body #compose input,
+  html body #compose [contenteditable="true"] {
+    color: #233044 !important;
+    background-color: #ffffff !important;
+  }
+  html body #compose textarea::placeholder,
+  html body #compose input::placeholder { color: #69798b !important; }
+  html body #legacy-closed-compose-box button {
+    color: #233044 !important;
+  }
+
+  /* RIGHT USER SIDEBAR: regain contrast lost in earlier color experiments. */
+  html body .app-main .column-right,
+  html body .app-main .column-right .right-sidebar,
+  html body #right-sidebar,
+  html body .user_sidebar_entry {
+    background: #f8fafc !important;
+    color: #29394b !important;
+  }
+  html body .app-main .column-right a,
+  html body .app-main .column-right button {
+    color: #2c4259 !important;
+  }
+  html body .app-main .column-right .right-sidebar {
+    border-left: 1px solid var(--asd-border) !important;
+  }
+  html body a:focus-visible,
+  html body button:focus-visible {
+    outline: 2px solid var(--asd-blue) !important;
+    outline-offset: 2px;
+  }
+}
+/* Mobile remains stock Zulip in this version to preserve tested responsive UX. */
+
+
+/* Live v1 higher-specificity compatibility layer, loaded AFTER Zulip's app bundle.
+   Deliberately matches the selectors observed in Chrome DevTools. */
+@media (min-width: 769px) {
+  html body #left-sidebar,
+  html body #left-sidebar-container,
+  html body .app-main .column-left,
+  html body .app-main .column-left .left-sidebar {
+    background-color: #edf2f7 !important;
+    color: #243548 !important;
+  }
+  html body #left-sidebar a,
+  html body #left-sidebar button,
+  html body #left-sidebar .left-sidebar-title,
+  html body #left-sidebar .stream-name,
+  html body #left-sidebar .topic-name {
+    color: #243548 !important;
+  }
+  html body .message_row,
+  html body .message_row .messagebox,
+  html body .message_row .messagebox-content,
+  html body .message_row .message_content {
+    background-color: #fff !important;
+    color: #243548 !important;
+  }
+  html body .app-main .column-right,
+  html body .app-main .column-right .right-sidebar {
+    background-color: #f7f9fc !important;
+    color: #243548 !important;
+  }
+}

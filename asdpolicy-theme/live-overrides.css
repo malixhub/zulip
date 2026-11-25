@@ -239,3 +239,23 @@
     color: #243548 !important;
   }
 }
+
+
+/* ASDPolicy navigation cleanup: links remain readable and not struck through.
+   Does not change Zulip's Home view preference or hide any built-in views. */
+@media (min-width: 769px) {
+  html body #left-sidebar a,
+  html body #left-sidebar a *,
+  html body #left-sidebar [role="link"],
+  html body #left-sidebar [role="link"] * {
+    text-decoration-line: none !important;
+    text-decoration-style: solid !important;
+  }
+  html body #left-sidebar a[href*="inbox"],
+  html body #left-sidebar a[href*="inbox"] *,
+  html body #left-sidebar a[href*="recent"],
+  html body #left-sidebar a[href*="recent"] * {
+    opacity: 1 !important;
+    text-decoration: none !important;
+  }
+}

@@ -4,7 +4,8 @@
 Default operation is OFFLINE and read-only: generate review files, no Zulip writes.
 For an existing Zulip organization, standard send-message API cannot backdate messages
 or impersonate historical authors. The manifest keeps the original author/time in
-message text and source metadata, and marks seeded/agent content clearly.
+message text and source metadata. Legacy source kind values are retained as metadata,
+not treated as evidence of whether a transcript was real.
 """
 from __future__ import annotations
 import argparse
@@ -17,10 +18,6 @@ import urllib.error
 
 BASE = "https://raw.githubusercontent.com/malixhub/sharepro/main/asdpolicy/backend/v2/data/"
 SOURCES = ["messages-archive-1.json", "messages.json"]
-LABELS = {
-    "seeded": "SIMULATED / SEEDED HISTORICAL CONTENT",
-    "agent": "AI-AGENT ARCHIVE CONTENT",
-}
 def load(path: pathlib.Path):
     return json.loads(path.read_text(encoding="utf-8"))
 
@@ -67,8 +64,8 @@ def main():
         topic = f"Collaboratory archive | {day}"
         kind = str(m.get("kind", "unknown"))
         author = str(m.get("author", "Unknown author"))
-        preface = f"**[ARCHIVED {LABELS.get(kind, kind.upper())}]**\n"
-        preface += f"**Original author/agent:** {author}\n"
+        preface = "**[ASDPolicy COLLABORATORY HISTORICAL TRANSCRIPT]**\n"
+        preface += f"**Original author:** {author}\n"
         preface += f"**Original date:** {timestamp(str(m.get('created_at','')))}\n"
         preface += f"**Source record ID:** `{identifier}`\n\n"
         body = str(m.get("text", ""))
@@ -104,7 +101,8 @@ def main():
         "notes": [
             "This is a review manifest, not a Zulip import executed against the server.",
             "Historical authors and timestamps cannot be preserved as native Zulip metadata through the standard send-message API.",
-            "Seeded and AI-agent content remains clearly labeled.",
+            "Legacy source kind values (including seeded and agent) are preserved only in original_kind metadata, not interpreted as fictional content.",
+            "Historical transcript status is based on the source owner’s clarification; source labels may be outdated.",
             "Only public repo snapshot if --allow-repository-snapshot was used; compare with live host export before importing.",
         ]
     }
